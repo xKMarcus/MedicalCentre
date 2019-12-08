@@ -1,6 +1,6 @@
 @extends('layouts.app')
 # @Date:   2019-11-11T14:54:51+00:00
-# @Last modified time: 2019-11-11T17:37:30+00:00
+# @Last modified time: 2019-12-08T22:58:35+00:00
 
 
 
@@ -91,6 +91,37 @@
 
                             <div class="col-md-6">
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="insurance" class="col-md-4 col-form-label text-md-right">{{ __('Insurance') }}</label>
+
+                            <div class="col-md-6">
+                                <select id="insurance" type="text" class="form-control @error('insurance') is-invalid @enderror" name="insurance" required autocomplete="insurance">
+                                  <option value="1">Yes</option>
+                                  <option value="0">No</option>
+
+                                </select>
+                                @error('insurance')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="startDate" class="col-md-4 col-form-label text-md-right">{{ __('StartDate') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="startDate" type="text" class="form-control @error('startDate') is-invalid @enderror" name="startDate" value="2019-12-08" required autocomplete="startDate">
+
+                                @error('startDate')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
                             </div>
                         </div>
 

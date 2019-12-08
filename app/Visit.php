@@ -11,11 +11,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Visit extends Model
 {
+    //assigning relationship with other tables
     public function users(){
       return $this->belongsTo('App\User');
     }
-
-    // public function patients(){
-    //   return $this->belongsTo('App\Patient');
-    // }
 }

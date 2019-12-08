@@ -11,6 +11,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Insurance extends Model
 {
+    //assigning relationship with other tables
     public function users(){
       return $this->belongsTo('App\User');
     }

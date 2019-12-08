@@ -1,6 +1,6 @@
 <?php
 # @Date:   2019-10-29T15:14:35+00:00
-# @Last modified time: 2019-11-11T17:04:50+00:00
+# @Last modified time: 2019-12-08T23:14:08+00:00
 
 
 
@@ -9,6 +9,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\User;
+use App\Role;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -56,8 +57,6 @@ class RegisterController extends Controller
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'phone' => ['required', 'string', 'phone', 'max:255'],
-            'address' => ['required', 'string', 'address', 'max:255'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
     }
@@ -77,6 +76,8 @@ class RegisterController extends Controller
             'phone' => $data['phone'],
             'address' => $data['address'],
             'password' => Hash::make($data['password']),
+            'insurance' => $data['insurance'],
+            'startDate' => $data['startDate'],
         ]);
 
         $user->roles()->attach(Role::where('name', 'user')->first());

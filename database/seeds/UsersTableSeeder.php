@@ -22,6 +22,8 @@ class UsersTableSeeder extends Seeder
         $role_patient = Role::where('name', 'patient')->first();
         $role_doctor = Role::where('name', 'doctor')->first();
 
+
+        //create an admin user
         $admin = new User();
         $admin->name = 'Marcus Fitzs';
         $admin->email = 'admin@hospital.ie';
@@ -33,7 +35,7 @@ class UsersTableSeeder extends Seeder
         $admin->save();
         $admin->roles()->attach($role_admin);
 
-
+        //create a patient user
         $patient = new User();
         $patient->name = 'John Jones';
         $patient->email = 'patient@hospital.ie';
@@ -45,6 +47,7 @@ class UsersTableSeeder extends Seeder
         $patient->save();
         $patient->roles()->attach($role_patient);
 
+        //create a doctor user
         $doctor = new User();
         $doctor->name = 'Dr Doctor';
         $doctor->email = 'Doctor@hospital.ie';

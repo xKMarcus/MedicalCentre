@@ -11,6 +11,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Role extends Model
 {
+    //assigning relationship with other tables
     public function users(){
       return $this->belongsToMany('App\User', 'user_role');
     }

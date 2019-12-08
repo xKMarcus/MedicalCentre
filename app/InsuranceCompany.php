@@ -11,6 +11,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class InsuranceCompany extends Model
 {
+    //assigning relationship with other tables
     public function insurances(){
       return $this->hasMany('App\Insurance');
     }

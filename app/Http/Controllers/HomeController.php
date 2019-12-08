@@ -1,6 +1,6 @@
 <?php
 # @Date:   2019-10-29T15:18:09+00:00
-# @Last modified time: 2019-10-30T00:21:26+00:00
+# @Last modified time: 2019-12-08T23:45:36+00:00
 
 
 
@@ -31,11 +31,9 @@ class HomeController extends Controller
         $user = $request->user();
         $home = 'user.home';
 
+        //show different homepage for different level users
         if ($user->hasRole('admin')){
           $home = 'admin.home';
-        }
-        else if ($user->hasRole('doctor')){
-          $home = 'doctor.home';
         }
         else{
           $home = 'user.home';

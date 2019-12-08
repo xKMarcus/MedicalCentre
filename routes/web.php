@@ -1,6 +1,6 @@
 <?php
 # @Date:   2019-10-29T15:14:35+00:00
-# @Last modified time: 2019-12-08T18:16:16+00:00
+# @Last modified time: 2019-12-08T23:27:12+00:00
 
 
 
@@ -16,21 +16,19 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Route::get('/', 'PageController@welcome')->name('welcome');
 Route::get('/about', 'PageController@about')->name('about');
 
 
 Auth::routes();
 
+
+//Homepages
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/admin/home', 'Admin\HomeController@index')->name('admin.home');
 Route::get('/user/home', 'User\HomeController@index')->name('user.home');
 
-
+//Admin interaction with users table
 Route::get('/admin/users', 'Admin\UserController@index')->name('admin.users.index');
 Route::get('/admin/users/create', 'Admin\UserController@create')->name('admin.users.create');
 Route::get('/admin/users/{id}', 'Admin\UserController@show')->name('admin.users.show');
@@ -39,6 +37,7 @@ Route::get('/admin/users/{id}/edit', 'Admin\UserController@edit')->name('admin.u
 Route::put('/admin/users/{id}', 'Admin\UserController@update')->name('admin.users.update');
 Route::delete('/admin/users/{id}', 'Admin\UserController@destroy')->name('admin.users.destroy');
 
+//Admin interaction with visits table
 Route::get('/admin/visits', 'Admin\VisitController@index')->name('admin.visits.index');
 Route::get('/admin/visits/create', 'Admin\VisitController@create')->name('admin.visits.create');
 Route::get('/admin/visits/{id}', 'Admin\VisitController@show')->name('admin.visits.show');
@@ -47,6 +46,7 @@ Route::get('/admin/visits/{id}/edit', 'Admin\VisitController@edit')->name('admin
 Route::put('/admin/visits/{id}', 'Admin\VisitController@update')->name('admin.visits.update');
 Route::delete('/admin/visits/{id}', 'Admin\VisitController@destroy')->name('admin.visits.destroy');
 
+//Admin interaction with insuranceCompanies table
 Route::get('/admin/insuranceCompanies', 'Admin\InsuranceCompanyController@index')->name('admin.insuranceCompanies.index');
 Route::get('/admin/insuranceCompanies/create', 'Admin\InsuranceCompanyController@create')->name('admin.insuranceCompanies.create');
 Route::get('/admin/insuranceCompanies/{id}', 'Admin\InsuranceCompanyController@show')->name('admin.insuranceCompanies.show');
@@ -55,6 +55,7 @@ Route::get('/admin/insuranceCompanies/{id}/edit', 'Admin\InsuranceCompanyControl
 Route::put('/admin/insuranceCompanies/{id}', 'Admin\InsuranceCompanyController@update')->name('admin.insuranceCompanies.update');
 Route::delete('/admin/insuranceCompanies/{id}', 'Admin\InsuranceCompanyController@destroy')->name('admin.insuranceCompanies.destroy');
 
+//Admin interaction with insurances table
 Route::get('/admin/insurances', 'Admin\InsuranceController@index')->name('admin.insurances.index');
 Route::get('/admin/insurances/create', 'Admin\InsuranceController@create')->name('admin.insurances.create');
 Route::get('/admin/insurances/{id}', 'Admin\InsuranceController@show')->name('admin.insurances.show');
@@ -63,5 +64,18 @@ Route::get('/admin/insurances/{id}/edit', 'Admin\InsuranceController@edit')->nam
 Route::put('/admin/insurances/{id}', 'Admin\InsuranceController@update')->name('admin.insurances.update');
 Route::delete('/admin/insurances/{id}', 'Admin\InsuranceController@destroy')->name('admin.insurances.destroy');
 
+//User interaction with users table
 Route::get('/user/users', 'User\UserController@index')->name('user.users.index');
 Route::get('/user/users/{id}', 'User\UserController@show')->name('user.users.show');
+
+//User interaction with visits table
+Route::get('/user/visits', 'User\VisitController@index')->name('user.visits.index');
+Route::get('/user/visits/{id}', 'User\VisitController@show')->name('user.visits.show');
+
+//User interaction with insuranceCompanies table
+Route::get('/user/insuranceCompanies', 'User\InsuranceCompanyController@index')->name('user.insuranceCompanies.index');
+Route::get('/user/insuranceCompanies/{id}', 'User\InsuranceCompanyController@show')->name('user.insuranceCompanies.show');
+
+//User interaction with insurances table
+Route::get('/user/insurances', 'User\InsuranceController@index')->name('user.insurances.index');
+Route::get('/user/insurances/{id}', 'User\InsuranceController@show')->name('user.insurances.show');

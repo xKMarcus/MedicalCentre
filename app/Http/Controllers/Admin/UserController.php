@@ -3,7 +3,7 @@
 # @Date:   2019-10-17T14:31:42+01:00
 # @Filename: UserController.php
 # @Last modified by:
-# @Last modified time: 2019-12-08T17:00:36+00:00
+# @Last modified time: 2019-12-08T23:05:01+00:00
 
 
 
@@ -62,7 +62,7 @@ class UserController extends Controller
         $request->validate([
           'name' => 'required|max:191',
           'email' => 'required|max:191',
-          'phone' => 'required|min:0',
+          'phone' => 'required|numeric|min:0',
           'address' => 'required|max:1900',
           'password' => 'required|max:191',
           'insurance' => 'required|numeric|min:0',
@@ -132,7 +132,7 @@ class UserController extends Controller
         $request->validate([
           'name' => 'required|max:191',
           'email' => 'required|max:191',
-          'phone' => 'required|min:0',
+          'phone' => 'required|numeric|min:0',
           'address' => 'required|max:1900',
           'password' => 'required|max:191',
           'insurance' => 'required|numeric|min:0',

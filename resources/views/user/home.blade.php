@@ -1,6 +1,6 @@
 @extends('layouts.app')
-# @Date:   2019-10-29T22:17:12+00:00
-# @Last modified time: 2019-11-04T20:28:20+00:00
+# @Date:   2019-10-29T22:16:45+00:00
+# @Last modified time: 2019-12-08T18:00:42+00:00
 
 
 
@@ -19,7 +19,16 @@
                         </div>
                     @endif
 
-                    You are logged in as an ordinary user!
+                    You are logged in as an user!
+                    </br></br></br>
+                    <a href="{{route('user.users.index')}}">Users</a>
+                    </br></br>
+                    <a href="{{route('user.visits.index')}}">Visits</a>
+                    </br></br>
+                    <a href="{{route('user.insuranceCompanies.index')}}">Insurance Companies</a>
+                    </br></br>
+                    <a href="{{route('user.insurances.index')}}">Insurance Policies</a>
+
                 </div>
             </div>
         </div>

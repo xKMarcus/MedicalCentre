@@ -1,6 +1,6 @@
 <?php
 # @Date:   2019-10-29T15:14:35+00:00
-# @Last modified time: 2019-10-29T22:54:23+00:00
+# @Last modified time: 2019-12-08T22:48:19+00:00
 
 
 
@@ -21,7 +21,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'phone', 'address', 'password',
+        'name', 'email', 'phone', 'address', 'password', 'insurance', 'startDate',
     ];
 
     /**
@@ -42,6 +42,8 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+
+    //assigning relationship with other tables
     public function roles(){
       return $this->belongsToMany('App\Role', 'user_role');
     }
